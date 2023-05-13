@@ -2,6 +2,7 @@ import NavBar from "./components/Navbar";
 import MovieSearch from "./components/MovieSearch";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,13 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="mx-10 space-y-4">
-        <div className="flex justify-between pt-4">
-          <h1 className="text-xl cursor-pointer">Movie Tracker</h1>
-          <div className="flex space-x-4">
-            <MovieSearch />
-            <p className="hover:text-green-500 cursor-pointer">Account</p>
-          </div>
-        </div>
+        <Header />
         <NavBar />
         <main>{children}</main>
       </body>
