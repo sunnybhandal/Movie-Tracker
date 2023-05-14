@@ -1,7 +1,5 @@
 "use client";
-import MovieSearch from "./components/MovieSearch";
 import Movies from "./components/Movies";
-import Navbar from "./components/Navbar";
 import LoadingPage from "./loading";
 import { useState, useEffect } from "react";
 const API_URL =

@@ -1,10 +1,6 @@
-"use client";
 import Link from "next/link";
-import { useState } from "react";
 
-export default function NavBar() {
-  const [page, setPage] = useState("yourList");
-
+export default function NavBar({ page, setPage }) {
   return (
     <div>
       <div className="flex space-x-10">
