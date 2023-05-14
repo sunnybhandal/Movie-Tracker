@@ -1,5 +1,4 @@
 import NavBar from "./components/Navbar";
-import MovieSearch from "./components/MovieSearch";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./components/Header";

@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Loginpage() {
-  return <div>Login page</div>;
+export default function LoginPage() {
+  return <div>Login page making modal</div>;
 }

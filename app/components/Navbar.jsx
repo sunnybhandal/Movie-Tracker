@@ -1,23 +1,78 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
+
 export default function NavBar() {
+  const [page, setPage] = useState("yourList");
+
   return (
     <div>
       <div className="flex space-x-10">
-        <Link href="/" className="hover:text-green-500 cursor-pointer">
-          Your List
-        </Link>
-        <Link href="/popular" className="hover:text-green-500 cursor-pointer">
-          Popular
-        </Link>
-        <Link href="/mostrated" className="hover:text-green-500 cursor-pointer">
-          Most Rated
-        </Link>
-        <Link href="/top100" className="hover:text-green-500 cursor-pointer">
-          Top 100
-        </Link>
-        <Link href="/az" className="hover:text-green-500 cursor-pointer">
-          A - Z
-        </Link>
+        {page === "yourList" ? (
+          <Link href="/" className="text-green-500 cursor-pointer">
+            Your List
+          </Link>
+        ) : (
+          <Link
+            onClick={() => setPage("yourList")}
+            href="/"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Your List
+          </Link>
+        )}
+        {page === "popular" ? (
+          <Link href="/popular" className="text-green-500 cursor-pointer">
+            Popular
+          </Link>
+        ) : (
+          <Link
+            onClick={() => setPage("popular")}
+            href="/popular"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Popular
+          </Link>
+        )}
+        {page === "mostRated" ? (
+          <Link href="/mostrated" className="text-green-500 cursor-pointer">
+            Most Rated
+          </Link>
+        ) : (
+          <Link
+            onClick={() => setPage("mostRated")}
+            href="/mostrated"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Most Rated
+          </Link>
+        )}
+        {page === "top100" ? (
+          <Link href="/top100" className="text-green-500 cursor-pointer">
+            Top 100
+          </Link>
+        ) : (
+          <Link
+            onClick={() => setPage("top100")}
+            href="/top100"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Top 100
+          </Link>
+        )}
+        {page === "a-z" ? (
+          <Link href="/az" className="text-green-500 cursor-pointer">
+            A - Z
+          </Link>
+        ) : (
+          <Link
+            onClick={() => setPage("a-z")}
+            href="/az"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            A - Z
+          </Link>
+        )}
       </div>
     </div>
   );
