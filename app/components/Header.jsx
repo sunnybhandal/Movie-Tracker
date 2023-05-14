@@ -6,13 +6,20 @@ import { useRouter } from "next/navigation";
 export default function Header({ setPage }) {
   const router = useRouter();
 
+  const handleHome = () => {
+    router.push("/");
+    setPage("yourList");
+  };
+
   const handleAccount = () => {
     router.push("/login");
     setPage("");
   };
   return (
     <div className="flex justify-between pt-4">
-      <h1 className="text-xl cursor-pointer">Movie Tracker</h1>
+      <h1 onClick={handleHome} className="text-xl cursor-pointer">
+        Movie Tracker
+      </h1>
       <div className="flex space-x-4">
         <MovieSearch />
         <p
