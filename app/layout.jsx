@@ -16,10 +16,12 @@ export default function RootLayout({ children }) {
   const [page, setPage] = useState("yourList");
 
   return (
-    <body className="mx-10 space-y-4">
-      <Header setPage={setPage} />
-      <NavBar page={page} setPage={setPage} />
-      <main>{children}</main>
-    </body>
+    <html lang="en">
+      <body className="mx-10 space-y-4">
+        <Header setPage={setPage} />
+        <NavBar page={page} setPage={setPage} />
+        <main>{children}</main>
+      </body>
+    </html>
   );
 }
