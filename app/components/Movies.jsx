@@ -11,7 +11,7 @@ export default function Movies({ movies }) {
   return (
     <div className="grid grid-rows-4 grid-flow-col gap-4 pt-4">
       {movies.map((movie) => (
-        <div className="flex flex-col items-center text-center">
+        <div id={movie.id} className="flex flex-col items-center text-center">
           <div
             key={movie.id}
             className="relative cursor-pointer border-2 border-white h-80 w-60 rounded-md"
