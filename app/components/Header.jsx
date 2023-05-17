@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function Header({ setPage }) {
   const router = useRouter();
+  // console.log('fun')
 
   const handleHome = () => {
     router.push("/");
