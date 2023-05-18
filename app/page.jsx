@@ -8,7 +8,7 @@ const API_URL =
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  //con
   useEffect(() => {
     const fetchMovies = async () => {
       const res = await fetch(API_URL);
