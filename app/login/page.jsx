@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function LoginPage() {
+  const hi = "s";
   return (
     <div className="flex justify-between ">
       <div>
