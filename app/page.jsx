@@ -2,13 +2,13 @@
 import Movies from "./components/Movies";
 import LoadingPage from "./loading";
 import { useState, useEffect } from "react";
-const API_URL =
-  "https://api.themoviedb.org/3/movie/popular?api_key=7aea79b68f5f012f3ce9164418062533";
+const API_KEY = process.env.API_KEY;
+const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  //con
+
   useEffect(() => {
     const fetchMovies = async () => {
       const res = await fetch(API_URL);

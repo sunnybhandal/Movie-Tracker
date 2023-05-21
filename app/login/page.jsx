@@ -9,6 +9,7 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(email, password);
     try {
       const data = await signIn("credentials", {
         redirect: false,
@@ -22,9 +23,9 @@ export default function LoginPage() {
     }
   };
   return (
-    <div className="flex justify-between ">
+    <div className="flex">
       <div>
-        <h1 className="text-center pb-4 text-xl">Register</h1>
+        <h1 className="text-center pb-4 text-xl">Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col space-y-1">
             <label htmlFor="email_field">Email</label>
@@ -50,26 +51,6 @@ export default function LoginPage() {
             <button className="bg-green-500 rounded-sm">Submit</button>
             <Link href="/register">Register </Link>
           </div>
-        </form>
-      </div>
-      <div>
-        <h1 className="text-center">Login</h1>
-        <form>
-          <label>Email</label>
-          <input
-            className="text-black"
-            name="email"
-            type="email"
-            placeholder="Enter your email..."
-          />
-          <label>Password</label>
-          <input
-            className="text-black"
-            name="password"
-            type="password"
-            placeholder="Enter your password..."
-          />
-          <button>Login</button>
         </form>
       </div>
     </div>

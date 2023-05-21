@@ -22,33 +22,38 @@ export default function RegisterPage() {
     }
   };
   return (
-    <div>
+    <div className="">
       <form onSubmit={handleSubmit}>
         <h1>Register</h1>
-        <label htmlFor="name_field">Name</label>
-        <input
-          type="text"
-          id="name_field"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label htmlFor="email_field">Email</label>
+        <div className="flex flex-col">
+          <label htmlFor="name_field">Name</label>
+          <input
+            className="text-black rounded-sm"
+            type="text"
+            id="name_field"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label htmlFor="email_field">Email</label>
 
-        <input
-          type="email"
-          id="email_field"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password_field">Password</label>
+          <input
+            className="text-black rounded-sm"
+            placeholder="Email..."
+            type="email"
+            id="email_field"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label htmlFor="password_field">Password</label>
 
-        <input
-          type="password"
-          id="password_field"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button>Submit</button>
+          <input
+            type="password"
+            id="password_field"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button>Submit</button>
+        </div>
       </form>
     </div>
   );
