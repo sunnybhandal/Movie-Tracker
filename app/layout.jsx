@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./components/Header";
 import { useState } from "react";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +18,13 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className="mx-10 space-y-4">
-        <Header setPage={setPage} />
-        <NavBar page={page} setPage={setPage} />
-        <main>{children}</main>
-      </body>
+      <SessionProvider>
+        <body className="mx-10 space-y-4">
+          <Header setPage={setPage} />
+          <NavBar page={page} setPage={setPage} />
+          <main>{children}</main>
+        </body>
+      </SessionProvider>
     </html>
   );
 }
