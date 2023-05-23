@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
+import Link from "next/link";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +18,7 @@ export default function RegisterPage() {
         email,
         password,
       });
+      router.push("/");
 
       console.log(data);
     } catch (error) {
@@ -29,6 +33,7 @@ export default function RegisterPage() {
           <label htmlFor="name_field">Name</label>
           <input
             className="text-black rounded-sm"
+            placeholder="Name..."
             type="text"
             id="name_field"
             value={name}
@@ -47,12 +52,15 @@ export default function RegisterPage() {
           <label htmlFor="password_field">Password</label>
 
           <input
+            className="text-black rounded-sm"
+            placeholder="Password..."
             type="password"
             id="password_field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button>Submit</button>
+          <button className="bg-green-500 rounded-sm">Submit</button>
+          <Link href="/login">Login </Link>
         </div>
       </form>
     </div>
