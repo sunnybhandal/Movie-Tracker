@@ -9,8 +9,6 @@ export default function Header({ setPage }) {
   const router = useRouter();
   const { data } = useSession();
 
-  // console.log('fun')
-
   const handleHome = () => {
     router.push("/");
     setPage("yourList");
@@ -30,7 +28,11 @@ export default function Header({ setPage }) {
           <div className="flex space-x-4">
             <MovieSearch />
             <h1>{data?.user.name}</h1>
-            <span className="cursor-pointer" href="/" onClick={() => signOut()}>
+            <span
+              className="cursor-pointer hover:text-green-500 "
+              href="/"
+              onClick={() => signOut()}
+            >
               Logout
             </span>
           </div>

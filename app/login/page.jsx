@@ -1,30 +1,30 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     try {
       const data = await signIn("credentials", {
         redirect: false,
         email,
         password,
       });
-
-      console.log(data);
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <div className="flex justify-center items-center pt-10">
-      <div className="w-full max-w-xs">
+      <div className="w-full max-w-md">
         <h1 className="text-center pb-2 text-xl font-medium">Login</h1>
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -64,15 +64,12 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div class="flex items-center justify-between">
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-            >
+          <div className="flex items-center justify-between">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Sign In
             </button>
             <a
-              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
               href="#"
             >
               Forgot Password?

@@ -19,50 +19,88 @@ export default function RegisterPage() {
         password,
       });
       router.push("/");
-
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div className="">
-      <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
-        <div className="flex flex-col">
-          <label htmlFor="name_field">Name</label>
-          <input
-            className="text-black rounded-sm"
-            placeholder="Name..."
-            type="text"
-            id="name_field"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label htmlFor="email_field">Email</label>
-
-          <input
-            className="text-black rounded-sm"
-            placeholder="Email..."
-            type="email"
-            id="email_field"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="password_field">Password</label>
-
-          <input
-            className="text-black rounded-sm"
-            placeholder="Password..."
-            type="password"
-            id="password_field"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="bg-green-500 rounded-sm">Submit</button>
-          <Link href="/login">Login </Link>
-        </div>
-      </form>
+    <div className="flex justify-center items-center pt-10">
+      <div className="w-full max-w-md">
+        <h1 className="text-center pb-2 text-xl font-medium">Register</h1>
+        <form
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={handleSubmit}
+        >
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email_field"
+            >
+              Name
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
+              type="text"
+              name="name"
+              placeholder="Enter your name..."
+              id="name_field"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email_field"
+            >
+              Email
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:shadow-outline"
+              type="email"
+              name="email"
+              placeholder="Enter your email..."
+              id="email_field"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="mb-2">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password_field"
+            >
+              Password
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:shadow-outline"
+              name="password"
+              type="password"
+              placeholder="Enter your password..."
+              id="password_field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              Register
+            </button>
+          </div>
+          <div className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+            Back to{" "}
+            <Link
+              href="/login"
+              className="text-blue-500 hover:text-blue-800 text-sm font-bold mb-2"
+            >
+              Login Page
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
