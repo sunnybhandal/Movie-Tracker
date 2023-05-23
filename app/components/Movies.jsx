@@ -1,14 +1,23 @@
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Modal from "./Modal";
 
 export default function Movies({ movies }) {
   const router = useRouter();
   const [movieList, setMovieList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState();
 
-  const movieDetails = (id) => {
-    router.push(`/${id}`);
-    // setPage("");
+  console.log(movies);
+  const handleOpenModal = (movie) => {
+    setSelectedMovie(movie);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedMovie(null);
+    setShowModal(false);
   };
 
   const addMovie = (id) => {
@@ -25,7 +34,7 @@ export default function Movies({ movies }) {
             <img
               className="h-72 w-72"
               src={API_IMG + movie.poster_path}
-              onClick={() => movieDetails(movie.id)}
+              onClick={() => handleOpenModal(movie)}
             />
             <div
               onClick={() => addMovie(movie.id)}
@@ -36,6 +45,13 @@ export default function Movies({ movies }) {
           </div>
         </div>
       ))}
+      {showModal && (
+        <Modal
+          api_img={API_IMG}
+          movie={selectedMovie}
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   );
 }
