@@ -19,10 +19,14 @@ export default function Header({ setPage }) {
     setPage("");
   };
   return (
-    <div className="flex justify-between pt-4">
-      <h1 onClick={handleHome} className="text-xl cursor-pointer">
-        Movie Tracker
-      </h1>
+    <div className="flex justify-between items-center pt-4">
+      <div onClick={handleHome} className=" cursor-pointer">
+        <img
+          src="websiteLogo.png"
+          alt=""
+          className="w-60 rounded-lg object-contain"
+        />
+      </div>
       {data?.user ? (
         <>
           <div className="flex space-x-4">
