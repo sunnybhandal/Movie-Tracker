@@ -1,5 +1,5 @@
 "use client";
-import Movies from "./components/Movies";
+import PopularMovies from "./components/PopularMovies";
 import LoadingPage from "./loading";
 import { useState, useEffect } from "react";
 const API_KEY = process.env.API_KEY;
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div>
-      <Movies movies={movies} />
+      <PopularMovies movies={movies} />
     </div>
   );
 }

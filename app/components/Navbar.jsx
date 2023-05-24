@@ -4,27 +4,14 @@ export default function NavBar({ page, setPage }) {
   return (
     <div>
       <div className="flex space-x-10">
-        {page === "yourList" ? (
-          <Link href="/" className="text-green-500 cursor-pointer">
-            Your List
-          </Link>
-        ) : (
-          <Link
-            onClick={() => setPage("yourList")}
-            href="/"
-            className="hover:text-green-500 cursor-pointer"
-          >
-            Your List
-          </Link>
-        )}
         {page === "popular" ? (
-          <Link href="/popular" className="text-green-500 cursor-pointer">
+          <Link href="/" className="text-green-500 cursor-pointer">
             Popular
           </Link>
         ) : (
           <Link
             onClick={() => setPage("popular")}
-            href="/popular"
+            href="/"
             className="hover:text-green-500 cursor-pointer"
           >
             Popular
@@ -67,6 +54,19 @@ export default function NavBar({ page, setPage }) {
             className="hover:text-green-500 cursor-pointer"
           >
             A - Z
+          </Link>
+        )}
+        {page === "yourList" ? (
+          <Link href="/yourList" className="text-green-500 cursor-pointer">
+            Your List
+          </Link>
+        ) : (
+          <Link
+            onClick={() => setPage("yourList")}
+            href="/yourList"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Your List
           </Link>
         )}
       </div>

@@ -11,10 +11,16 @@ export default function Header({ setPage }) {
 
   const handleHome = () => {
     router.push("/");
-    setPage("yourList");
+    setPage("popular");
   };
 
-  const handleAccount = () => {
+  const handleSignOut = () => {
+    signOut();
+    router.push("/");
+    setPage("popular");
+  };
+
+  const goLoginPage = () => {
     router.push("/login");
     setPage("");
   };
@@ -35,7 +41,7 @@ export default function Header({ setPage }) {
             <span
               className="cursor-pointer hover:text-green-500 "
               href="/"
-              onClick={() => signOut()}
+              onClick={handleSignOut}
             >
               Logout
             </span>
@@ -46,7 +52,7 @@ export default function Header({ setPage }) {
           <MovieSearch />
           <Link
             href="/login"
-            onClick={handleAccount}
+            onClick={goLoginPage}
             className="hover:text-green-500 cursor-pointer"
           >
             Login

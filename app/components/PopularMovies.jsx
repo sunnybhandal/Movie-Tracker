@@ -1,9 +1,10 @@
+"use client";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Modal from "./Modal";
 
-export default function Movies({ movies }) {
+export default function PopularPage({ movies }) {
   const router = useRouter();
   const [movieList, setMovieList] = useState([]);
   const [showModal, setShowModal] = useState(false);

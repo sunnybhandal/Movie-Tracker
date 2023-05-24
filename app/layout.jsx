@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
-  const [page, setPage] = useState("yourList");
+  const [page, setPage] = useState("popular");
 
   return (
     <html lang="en">
