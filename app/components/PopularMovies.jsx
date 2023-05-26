@@ -3,6 +3,7 @@ const API_IMG = "https://image.tmdb.org/t/p/w500/";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Modal from "./Modal";
+import Card from "./Card";
 
 export default function PopularPage({ movies }) {
   const router = useRouter();
@@ -28,22 +29,15 @@ export default function PopularPage({ movies }) {
   };
 
   return (
-    <div className="grid grid-flow-col auto-cols-auto lg:grid-rows-5 xl:grid-rows-4 pt-4 justify-between ">
+    <div className="sm:grid grid-flow-col auto-cols-auto sm:grid-rows-5 xl:grid-rows-4 pt-4 justify-between ">
       {movies.map((movie) => (
         <div key={movie.id} className="flex flex-col pb-4">
-          <div className="relative cursor-pointer border-2 border-white w-60 rounded-md">
-            <img
-              className="h-72 w-72"
-              src={API_IMG + movie.poster_path}
-              onClick={() => handleOpenModal(movie)}
-            />
-            <div
-              onClick={() => addMovie(movie.id)}
-              className="justify-center h-8 flex items-center bg-green-500 hover:bg-green-700 font-semibold"
-            >
-              Add to List
-            </div>
-          </div>
+          <Card
+            api_img={API_IMG}
+            movie={movie}
+            handleOpenModal={handleOpenModal}
+            addMovie={addMovie}
+          />
         </div>
       ))}
       {showModal && (
