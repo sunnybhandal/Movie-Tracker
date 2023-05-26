@@ -31,7 +31,7 @@ export default function PopularPage({ movies }) {
   return (
     <div className="sm:grid grid-flow-col auto-cols-auto sm:grid-rows-5 xl:grid-rows-4 pt-4 justify-between ">
       {movies.map((movie) => (
-        <div key={movie.id} className="flex flex-col pb-4">
+        <div key={movie.id} className="pb-4">
           <Card
             api_img={API_IMG}
             movie={movie}

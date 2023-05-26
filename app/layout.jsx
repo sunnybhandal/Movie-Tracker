@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <SessionProvider>
-        <body className="mx-10 space-y-4">
+        <body className="mx-10">
           <Header setPage={setPage} />
           <NavBar page={page} setPage={setPage} />
           <main>{children}</main>

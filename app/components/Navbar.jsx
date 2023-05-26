@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function NavBar({ page, setPage }) {
   return (
     <div>
-      <div className="flex space-x-10">
+      <div className="flex space-x-10 pt-6 pb-4">
         {page === "popular" ? (
           <Link href="/" className="text-green-500 cursor-pointer">
             Popular

@@ -10,7 +10,7 @@ export default function Card({ api_img, movie, handleOpenModal, addMovie }) {
       />
       <div
         onClick={() => addMovie(movie.id)}
-        className="justify-center h-20 sm:h-7 flex items-center bg-green-500 hover:bg-green-700 text-2xl sm:text-md font-semibold"
+        className="justify-center h-16 sm:h-7 flex items-center bg-green-500 hover:bg-green-700 text-2xl sm:text-md font-semibold"
       >
         Add to List
       </div>
