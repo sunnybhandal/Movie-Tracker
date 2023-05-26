@@ -25,35 +25,37 @@ export default function Header({ setPage }) {
     setPage("");
   };
   return (
-    <div className="flex justify-between items-center pt-4">
-      <div onClick={handleHome} className=" cursor-pointer">
+    <div className="sm:flex justify-between items-center pt-4">
+      <div
+        onClick={handleHome}
+        className="pb-4 sm:pb-0 flex justify-center cursor-pointer"
+      >
         <img
           src="websiteLogo.png"
           alt=""
-          className="w-60 rounded-lg object-contain"
+          className="w-80 sm:w-60 rounded-lg object-contain"
         />
       </div>
       {data?.user ? (
         <>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 items-center justify-center">
             <MovieSearch />
-            <h1>{data?.user.name}</h1>
-            <span
-              className="cursor-pointer hover:text-green-500 "
+            <h1
+              className="hover:text-green-500 cursor-pointer"
               href="/"
               onClick={handleSignOut}
             >
-              Logout
-            </span>
+              {data?.user.name}
+            </h1>
           </div>
         </>
       ) : (
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 items-center justify-center">
           <MovieSearch />
           <Link
             href="/login"
             onClick={goLoginPage}
-            className="hover:text-green-500 cursor-pointer"
+            className="hover:text-green-500 cursor-pointer text-md sm:text-lg 2xl:text-xl"
           >
             Login
           </Link>
