@@ -28,12 +28,12 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         <h1 className="text-center pb-2 text-xl font-medium">Register</h1>
         <form
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-white shadow-md rounded px-6 sm:px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2"
               htmlFor="email_field"
             >
               Name
@@ -50,7 +50,7 @@ export default function RegisterPage() {
           </div>
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2"
               htmlFor="email_field"
             >
               Email
@@ -67,7 +67,7 @@ export default function RegisterPage() {
           </div>
           <div className="mb-2">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 font-bold mb-2"
               htmlFor="password_field"
             >
               Password
@@ -90,11 +90,11 @@ export default function RegisterPage() {
               Register
             </button>
           </div>
-          <div className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+          <div className="block text-gray-700 font-bold mt-4 mb-2">
             Back to{" "}
             <Link
               href="/login"
-              className="text-blue-500 hover:text-blue-800 text-sm font-bold mb-2"
+              className="text-blue-500 hover:text-blue-800 font-bold"
             >
               Login Page
             </Link>
