@@ -28,7 +28,7 @@ export default function PopularPage({ movies }) {
   };
 
   return (
-    <div className="grid grid-rows-4 grid-flow-col pt-4 justify-between ">
+    <div className="grid grid-flow-col auto-cols-auto lg:grid-rows-5 xl:grid-rows-4 pt-4 justify-between ">
       {movies.map((movie) => (
         <div key={movie.id} className="flex flex-col pb-4">
           <div className="relative cursor-pointer border-2 border-white w-60 rounded-md">
@@ -39,7 +39,7 @@ export default function PopularPage({ movies }) {
             />
             <div
               onClick={() => addMovie(movie.id)}
-              className="justify-center h-8 flex items-center bg-green-500 hover:bg-green-700"
+              className="justify-center h-8 flex items-center bg-green-500 hover:bg-green-700 font-semibold"
             >
               Add to List
             </div>
