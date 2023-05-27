@@ -17,7 +17,7 @@ export default function LoginPage() {
         email,
         password,
       });
-      router.push("/");
+      router.push("/yourList");
     } catch (error) {
       console.log(error);
     }

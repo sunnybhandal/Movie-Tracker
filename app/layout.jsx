@@ -15,34 +15,27 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
-  const [page, setPage] = useState("");
-  const router = useRouter();
+  const [page, setPage] = useState(null);
   const path = usePathname();
 
   useEffect(() => {
     if (path === "/") {
       setPage("popular");
-      // router.push("/");
     }
     if (path === "/mostRated") {
       setPage("mostRated");
-      // router.push("/");
     }
     if (path === "/top100") {
       setPage("top100");
-      // router.push("/");
     }
     if (path === "/az") {
       setPage("az");
-      // router.push("/");
     }
     if (path === "/yourList") {
       setPage("yourList");
-      // router.push("/");
     }
     if (path === "/login") {
       setPage("login");
-      // router.push("/");
     }
   }, [path]);
 
