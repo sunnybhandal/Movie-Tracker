@@ -15,14 +15,34 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
-  const [page, setPage] = useState("popular");
+  const [page, setPage] = useState("");
   const router = useRouter();
   const path = usePathname();
 
   useEffect(() => {
     if (path === "/") {
       setPage("popular");
-      router.push("/");
+      // router.push("/");
+    }
+    if (path === "/mostRated") {
+      setPage("mostRated");
+      // router.push("/");
+    }
+    if (path === "/top100") {
+      setPage("top100");
+      // router.push("/");
+    }
+    if (path === "/az") {
+      setPage("az");
+      // router.push("/");
+    }
+    if (path === "/yourList") {
+      setPage("yourList");
+      // router.push("/");
+    }
+    if (path === "/login") {
+      setPage("login");
+      // router.push("/");
     }
   }, [path]);
 
@@ -31,7 +51,7 @@ export default function RootLayout({ children }) {
       <SessionProvider>
         <body className="mx-10">
           <Header setPage={setPage} />
-          <NavBar page={page} setPage={setPage} />
+          <NavBar page={page} />
           <main>{children}</main>
         </body>
       </SessionProvider>

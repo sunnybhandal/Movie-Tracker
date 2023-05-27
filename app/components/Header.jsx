@@ -5,32 +5,23 @@ import { useRouter, usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
-export default function Header({ setPage }) {
+export default function Header() {
   const router = useRouter();
   const path = usePathname();
 
   console.log(path);
-  const { data } = useSession();
 
-  const handleHome = () => {
-    router.push("/");
-    setPage("popular");
-  };
+  const { data } = useSession();
 
   const handleSignOut = () => {
     signOut();
     router.push("/");
-    setPage("popular");
   };
 
-  const goLoginPage = () => {
-    router.push("/login");
-    setPage("");
-  };
   return (
     <div className="sm:flex justify-between items-center pt-4">
       <div
-        onClick={handleHome}
+        onClick={() => router.push("/")}
         className="pb-4 sm:pb-0 flex justify-center cursor-pointer"
       >
         <img
@@ -57,7 +48,7 @@ export default function Header({ setPage }) {
           <MovieSearch />
           <Link
             href="/login"
-            onClick={goLoginPage}
+            onClick={() => router.push("/login")}
             className="hover:text-green-500 cursor-pointer text-md sm:text-lg 2xl:text-xl"
           >
             Login

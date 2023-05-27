@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NavBar({ page, setPage }) {
+export default function NavBar({ page }) {
   return (
     <div>
       <div className="flex space-x-2 sm:space-x-10 justify-between sm:justify-start pt-6 pb-4 text-md sm:text-lg 2xl:text-xl">
@@ -9,22 +9,17 @@ export default function NavBar({ page, setPage }) {
             Popular
           </Link>
         ) : (
-          <Link
-            onClick={() => setPage("popular")}
-            href="/"
-            className="hover:text-green-500 cursor-pointer"
-          >
+          <Link href="/" className="hover:text-green-500 cursor-pointer">
             Popular
           </Link>
         )}
         {page === "mostRated" ? (
-          <Link href="/mostrated" className="text-green-500 cursor-pointer">
+          <Link href="/mostRated" className="text-green-500 cursor-pointer">
             Most Rated
           </Link>
         ) : (
           <Link
-            onClick={() => setPage("mostRated")}
-            href="/mostrated"
+            href="/mostRated"
             className="hover:text-green-500 cursor-pointer"
           >
             Most Rated
@@ -35,24 +30,16 @@ export default function NavBar({ page, setPage }) {
             Top 100
           </Link>
         ) : (
-          <Link
-            onClick={() => setPage("top100")}
-            href="/top100"
-            className="hover:text-green-500 cursor-pointer"
-          >
+          <Link href="/top100" className="hover:text-green-500 cursor-pointer">
             Top 100
           </Link>
         )}
-        {page === "a-z" ? (
+        {page === "az" ? (
           <Link href="/az" className="text-green-500 cursor-pointer">
             A - Z
           </Link>
         ) : (
-          <Link
-            onClick={() => setPage("a-z")}
-            href="/az"
-            className="hover:text-green-500 cursor-pointer"
-          >
+          <Link href="/az" className="hover:text-green-500 cursor-pointer">
             A - Z
           </Link>
         )}
@@ -62,7 +49,6 @@ export default function NavBar({ page, setPage }) {
           </Link>
         ) : (
           <Link
-            onClick={() => setPage("yourList")}
             href="/yourList"
             className="hover:text-green-500 cursor-pointer"
           >
