@@ -3,8 +3,9 @@ import NavBar from "./components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Header from "./components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SessionProvider } from "next-auth/react";
+import { useRouter, usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   const [page, setPage] = useState("popular");
+  const router = useRouter();
+  const path = usePathname();
+
+  useEffect(() => {
+    if (path === "/") {
+      setPage("popular");
+      router.push("/");
+    }
+  }, [path]);
 
   return (
     <html lang="en">

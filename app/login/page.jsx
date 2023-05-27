@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     try {
       const data = await signIn("credentials", {
@@ -28,7 +28,7 @@ export default function LoginPage() {
         <h1 className="text-center pb-2 text-xl font-medium">Login</h1>
         <form
           className="bg-white shadow-md rounded px-6 sm:px-8 pt-6 pb-8 mb-4"
-          onSubmit={handleSubmit}
+          onSubmit={handleSignIn}
         >
           <div className="mb-4">
             <label
@@ -65,7 +65,10 @@ export default function LoginPage() {
             />
           </div>
           <div className="flex items-center justify-between">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button
+              onSubmit={handleSignIn}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
               Sign In
             </button>
             <a

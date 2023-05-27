@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function RegisterPage() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [page, setPage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +20,16 @@ export default function RegisterPage() {
         email,
         password,
       });
+      try {
+        await signIn("credentials", {
+          redirect: false,
+          email,
+          password,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      setPage("popular");
       router.push("/");
     } catch (error) {
       console.log(error);
@@ -82,10 +94,11 @@ export default function RegisterPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div class="flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              onClick={handleSubmit}
             >
               Register
             </button>

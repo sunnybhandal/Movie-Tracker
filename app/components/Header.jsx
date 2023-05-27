@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
 import MovieSearch from "./MovieSearch";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
 export default function Header({ setPage }) {
   const router = useRouter();
+  const path = usePathname();
+
+  console.log(path);
   const { data } = useSession();
 
   const handleHome = () => {
