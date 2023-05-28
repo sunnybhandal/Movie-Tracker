@@ -1,14 +1,12 @@
 "use client";
+import { useState, useEffect } from "react";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Modal from "./Modal";
-import Card from "./Card";
-import axios from "axios";
+const API_KEY = process.env.API_KEY;
+import Card from "../components/Card";
+import Modal from "../components/Modal";
 
-export default function PopularPage({ movies }) {
-  const router = useRouter();
-  const [movieList, setMovieList] = useState([]);
+export default function upcomingPage() {
+  const [movies, setMovies] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState();
 
@@ -22,33 +20,26 @@ export default function PopularPage({ movies }) {
     setShowModal(false);
   };
 
-  const addMovie = (id) => {
-    if (movieList.includes(id)) return;
-    setMovieList((prev) => [...prev, id]);
-  };
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const res = await fetch(
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`
+      );
+      const data = await res.json();
+      setMovies(data.results);
+    };
 
-  const saveList = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post(`/api/saveList`, { movieList });
-      console.log(data, "saveList popularmovies");
-
-      // router.push("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+    fetchMovies();
+  }, []);
   return (
     <div className="sm:grid grid-flow-col auto-cols-auto sm:grid-rows-5 xl:grid-rows-4 2xl:grid-rows-5 pt-4 justify-between ">
-      <button onClick={saveList}>Save List</button>
       {movies.map((movie) => (
         <div key={movie.id} className="pb-4">
           <Card
             api_img={API_IMG}
             movie={movie}
             handleOpenModal={handleOpenModal}
-            addMovie={addMovie}
+            // addMovie={addMovie}
           />
         </div>
       ))}

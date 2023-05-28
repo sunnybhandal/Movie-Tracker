@@ -9,8 +9,6 @@ export default function Header() {
   const router = useRouter();
   const path = usePathname();
 
-  console.log(path);
-
   const { data } = useSession();
 
   const handleSignOut = () => {

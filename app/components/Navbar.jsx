@@ -13,34 +13,40 @@ export default function NavBar({ page }) {
             Popular
           </Link>
         )}
-        {page === "mostRated" ? (
-          <Link href="/mostRated" className="text-green-500 cursor-pointer">
-            Most Rated
+        {page === "topRated" ? (
+          <Link href="/topRated" className="text-green-500 cursor-pointer">
+            Top Rated
           </Link>
         ) : (
           <Link
-            href="/mostRated"
+            href="/topRated"
             className="hover:text-green-500 cursor-pointer"
           >
-            Most Rated
+            Top Rated
           </Link>
         )}
-        {page === "top100" ? (
-          <Link href="/top100" className="text-green-500 cursor-pointer">
-            Top 100
+        {page === "upcoming" ? (
+          <Link href="/upcoming" className="text-green-500 cursor-pointer">
+            Upcoming
           </Link>
         ) : (
-          <Link href="/top100" className="hover:text-green-500 cursor-pointer">
-            Top 100
+          <Link
+            href="/upcoming"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Upcoming
           </Link>
         )}
-        {page === "az" ? (
-          <Link href="/az" className="text-green-500 cursor-pointer">
-            A - Z
+        {page === "nowPlaying" ? (
+          <Link href="/nowPlaying" className="text-green-500 cursor-pointer">
+            Now Playing
           </Link>
         ) : (
-          <Link href="/az" className="hover:text-green-500 cursor-pointer">
-            A - Z
+          <Link
+            href="/nowPlaying"
+            className="hover:text-green-500 cursor-pointer"
+          >
+            Now Playing
           </Link>
         )}
         {page === "yourList" ? (

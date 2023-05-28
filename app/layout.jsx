@@ -22,14 +22,14 @@ export default function RootLayout({ children }) {
     if (path === "/") {
       setPage("popular");
     }
-    if (path === "/mostRated") {
-      setPage("mostRated");
+    if (path === "/topRated") {
+      setPage("topRated");
     }
-    if (path === "/top100") {
-      setPage("top100");
+    if (path === "/upcoming") {
+      setPage("upcoming");
     }
-    if (path === "/az") {
-      setPage("az");
+    if (path === "/nowPlaying") {
+      setPage("nowPlaying");
     }
     if (path === "/yourList") {
       setPage("yourList");
