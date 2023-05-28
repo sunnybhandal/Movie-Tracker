@@ -2,6 +2,8 @@ import User from "../../models/user";
 import dbConnect from "@/config/dbConnect";
 
 export default async function handler(req, res) {
+  console.log(req.body, res.method, "register");
+
   if (req.method === "POST") {
     dbConnect();
 

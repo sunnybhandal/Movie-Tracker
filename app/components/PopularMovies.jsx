@@ -31,7 +31,7 @@ export default function PopularPage({ movies }) {
     e.preventDefault();
     try {
       const { data } = await axios.post(`/api/saveList`, { movieList });
-      console.log(data, "saveList popularmovies");
+      console.log(data, "saveList");
 
       // router.push("/");
     } catch (error) {
