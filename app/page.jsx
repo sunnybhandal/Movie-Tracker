@@ -21,7 +21,7 @@ export default function Home() {
     fetchMovies();
   }, []);
 
-  if (!loading) {
+  if (loading) {
     return <LoadingPage />;
   }
 
