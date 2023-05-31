@@ -13,7 +13,6 @@ export default function Header() {
 
   const handleSignOut = () => {
     signOut();
-    router.push("/");
   };
 
   return (

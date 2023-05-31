@@ -103,7 +103,7 @@ export default function RegisterPage() {
               Register
             </button>
           </div>
-          <div className="block text-gray-700 font-bold mt-4 mb-2">
+          <div className="block text-gray-700 font-bold mt-6">
             Back to{" "}
             <Link
               href="/login"
