@@ -31,6 +31,10 @@ export default function PopularPage({ movies }) {
     setMovieList((prev) => [...prev, id]);
   };
 
+  const removeMovie = (id) => {
+    console.log(id, "remove");
+  };
+
   const saveList = async (e) => {
     e.preventDefault();
     try {
@@ -53,6 +57,7 @@ export default function PopularPage({ movies }) {
             movie={movie}
             handleOpenModal={handleOpenModal}
             addMovie={addMovie}
+            removeMovie={removeMovie}
           />
         </div>
       ))}
