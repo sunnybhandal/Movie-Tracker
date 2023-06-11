@@ -8,7 +8,9 @@ export default function Card({
   handleOpenModal,
   addMovie,
   removeMovie,
+  movieList,
 }) {
+  console.log(movieList);
   return (
     <div className="relative cursor-pointer border-white">
       <img
@@ -16,14 +18,17 @@ export default function Card({
         src={api_img + movie.poster_path}
         onClick={() => handleOpenModal(movie)}
       />
-      <ImCheckboxChecked
-        onClick={() => removeMovie(movie.id)}
-        className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-white text-green-500 rounded-md"
-      />
-      <AiFillPlusSquare
-        onClick={() => addMovie(movie.id)}
-        className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-gray-500 text-gray-300 "
-      />
+      {movieList.includes(movie.id) ? (
+        <ImCheckboxChecked
+          onClick={() => removeMovie(movie.id)}
+          className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-white text-green-500 rounded-md"
+        />
+      ) : (
+        <AiFillPlusSquare
+          onClick={() => addMovie(movie.id)}
+          className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-gray-500 text-gray-300 "
+        />
+      )}
     </div>
   );
 }

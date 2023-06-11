@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import Card from "./Card";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+// Need to save movie list on refresh
 
 export default function PopularPage({ movies }) {
   const router = useRouter();
@@ -32,7 +33,9 @@ export default function PopularPage({ movies }) {
   };
 
   const removeMovie = (id) => {
-    console.log(id, "remove");
+    const modifiedList = movieList.filter((prev) => prev !== id);
+    console.log(modifiedList, "remove");
+    setMovieList(modifiedList);
   };
 
   const saveList = async (e) => {
@@ -58,6 +61,7 @@ export default function PopularPage({ movies }) {
             handleOpenModal={handleOpenModal}
             addMovie={addMovie}
             removeMovie={removeMovie}
+            movieList={movieList}
           />
         </div>
       ))}
