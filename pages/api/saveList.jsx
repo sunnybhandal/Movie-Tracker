@@ -1,9 +1,14 @@
 import User from "../../models/user";
 import dbConnect from "@/config/dbConnect";
+import { authOptions } from "./auth/[...nextauth]";
+import { getServerSession } from "next-auth";
 
 export default async function handler(req, res) {
   console.log(req.body, res.method, "save list");
   if (req.method === "POST") {
+    const session = await getServerSession(req, res, authOptions);
+
+    console.log("SESSION", session);
     // const db = dbConnect();
     // console.log(db);
     // const collection = db.collection("users");

@@ -5,12 +5,16 @@ import { useRouter } from "next/navigation";
 import Modal from "./Modal";
 import Card from "./Card";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 
 export default function PopularPage({ movies }) {
   const router = useRouter();
   const [movieList, setMovieList] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState();
+  const { data } = useSession();
+
+  console.log("HRE IS DAT", data);
 
   const handleOpenModal = (movie) => {
     setSelectedMovie(movie);
