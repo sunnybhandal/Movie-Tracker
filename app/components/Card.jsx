@@ -18,11 +18,11 @@ export default function Card({
       />
       <ImCheckboxChecked
         onClick={() => removeMovie(movie.id)}
-        className="absolute top-2 left-0 text-4xl bg-white text-green-500 rounded-md"
+        className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-white text-green-500 rounded-md"
       />
       <AiFillPlusSquare
         onClick={() => addMovie(movie.id)}
-        className="absolute top-2 left-0 text-4xl bg-gray-500 text-gray-300 "
+        className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-gray-500 text-gray-300 "
       />
     </div>
   );
