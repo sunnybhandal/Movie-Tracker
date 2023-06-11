@@ -1,9 +1,10 @@
 import Link from "next/link";
 
 export default function NavBar({ page }) {
+  // Change to icons on small screens
   return (
     <div>
-      <div className="flex space-x-2 sm:space-x-10 justify-between sm:justify-start pt-6 pb-4 text-md sm:text-lg 2xl:text-xl">
+      <div className="flex space-x-2 sm:space-x-10 justify-between sm:justify-start pt-6 pb-4 text-sm sm:text-lg 2xl:text-xl">
         {page === "popular" ? (
           <Link href="/" className="text-green-500 cursor-pointer">
             Popular
