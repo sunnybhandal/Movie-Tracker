@@ -15,7 +15,7 @@ export default function PopularPage({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState();
   const { data } = useSession();
 
-  console.log("HRE IS DAT", data);
+  console.log(data, "data");
 
   const handleOpenModal = (movie) => {
     setSelectedMovie(movie);

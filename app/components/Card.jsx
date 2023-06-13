@@ -35,7 +35,7 @@ export default function Card({
         </>
       ) : (
         <AiFillPlusSquare
-          onClick={() => goLoginPage()}
+          onClick={goLoginPage}
           className="absolute top-14 sm:top-4 left-0 text-5xl sm:text-2xl md:text-3xl lg:text-5xl bg-gray-500 text-gray-300 "
         />
       )}
