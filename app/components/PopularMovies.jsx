@@ -50,6 +50,10 @@ export default function PopularPage({ movies }) {
     }
   };
 
+  const goLoginPage = () => {
+    router.push("/login");
+  };
+
   return (
     <div className="sm:grid grid-flow-col auto-cols-auto sm:grid-rows-5 xl:grid-rows-4 2xl:grid-rows-5 pt-4 justify-between ">
       <button onClick={saveList}>Save List</button>
@@ -62,6 +66,8 @@ export default function PopularPage({ movies }) {
             addMovie={addMovie}
             removeMovie={removeMovie}
             movieList={movieList}
+            loggedIn={data}
+            goLoginPage={goLoginPage}
           />
         </div>
       ))}
