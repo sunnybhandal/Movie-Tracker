@@ -18,6 +18,8 @@ export default function MovieList() {
   const testId = 758323;
   console.log(userMovies, "user movies");
 
+  // get multiple movie to appear from a list of arrays
+
   useEffect(() => {
     const getMovieDetails = async () => {
       const res = await fetch(
