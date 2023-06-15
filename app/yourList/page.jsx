@@ -15,19 +15,24 @@ export default function MovieList() {
   const [selectedMovie, setSelectedMovie] = useState();
   const [loading, setLoading] = useState(true);
   const testData = [713704, 879444, 667538, 758323];
-  const testId = 758323;
-  console.log(userMovies, "user movies");
-
-  // get multiple movie to appear from a list of arrays
+  // get the users list of movie ids from the backend
 
   useEffect(() => {
     const getMovieDetails = async () => {
-      const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${testId}?api_key=${API_KEY}`
-      );
-      const data = await res.json();
-      console.log(data, "data for movie id");
-      setUserMovies(data);
+      try {
+        const dataArr = [];
+        for (const id of testData) {
+          const res = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+          );
+          const data = await res.json();
+          dataArr.push(data);
+        }
+        setUserMovies(dataArr);
+      } catch (error) {
+        console.error(error);
+      }
+
       setLoading(false);
     };
 
@@ -49,10 +54,10 @@ export default function MovieList() {
   }
 
   return (
-    <>
+    <div className="sm:grid grid-flow-col auto-cols-auto sm:grid-rows-5 xl:grid-rows-4 2xl:grid-rows-5 pt-4 justify-between ">
       {userMovies ? (
-        <div className="sm:grid grid-flow-col auto-cols-auto sm:grid-rows-5 xl:grid-rows-4 2xl:grid-rows-5 pt-4 justify-between ">
-          {/* {userMovies.map((movie) => (
+        <>
+          {userMovies.map((movie) => (
             <div key={movie.id} className="pb-4">
               <Card
                 api_img={API_IMG}
@@ -60,13 +65,8 @@ export default function MovieList() {
                 handleOpenModal={handleOpenModal}
               />
             </div>
-          ))} */}
-          <Card
-            api_img={API_IMG}
-            movie={userMovies}
-            handleOpenModal={handleOpenModal}
-          />
-        </div>
+          ))}
+        </>
       ) : (
         <div className="w-full h-80 flex justify-center items-center">
           <button
@@ -84,6 +84,6 @@ export default function MovieList() {
           onClose={handleCloseModal}
         />
       )}
-    </>
+    </div>
   );
 }
